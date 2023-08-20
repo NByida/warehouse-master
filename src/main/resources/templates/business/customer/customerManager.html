@@ -192,24 +192,45 @@
             toolbar: "#customerToolBar",
             page: true,
             height: "full-180",
+            // cols: [ [
+            //     {type:'checkbox',fixed:'left'},
+            //     {field: 'id', title: 'ID', align: 'center',width:'50'},
+            //     {field: 'customername', title: '客户名称', align: 'center',width:'100'},
+            //     {field: 'address', title: '客户地址', align: 'center',width:'150'},
+            //     {field: 'telephone', title: '客户电话', align: 'center',width:'140'},
+            //     {field: 'zip', title: '邮编', align: 'center',width:'90'},
+            //     {field: 'connectionpersion', title: '联系人', align: 'center',width:'130'},
+            //     {field: 'phone', title: '联系人电话', align: 'center',width:'130'},
+            //     {field: 'bank', title: '开户银行', align: 'center',width:'100'},
+            //     {field: 'account', title: '银行账号', align: 'center',width:'160'},
+            //     {field: 'email', title: '邮箱', align: 'center',width:'200'},
+            //     {field: 'fax', title: '传真', align: 'center',width:'100'},
+            //     {field: 'available', title: '是否可用', align: 'center',width:'100',templet:function (d) {
+            //         return d.available==1?'<font color="blue">可用</font>':'<font color="red">不可用</font>';
+            //     }},
+            //     {fixed: 'right', title: '操作', toolbar: '#customerRowBar', align: 'center',width:'180'}
+            // ] ],
+
+
             cols: [ [
                 {type:'checkbox',fixed:'left'},
-                {field: 'id', title: 'ID', align: 'center',width:'50'},
-                {field: 'customername', title: '客户名称', align: 'center',width:'100'},
-                {field: 'address', title: '客户地址', align: 'center',width:'150'},
-                {field: 'telephone', title: '客户电话', align: 'center',width:'140'},
-                {field: 'zip', title: '邮编', align: 'center',width:'90'},
+                {field: 'id', title: '仓库ID', align: 'center',width:'50'},
+                {field: 'customername', title: '仓库名称', align: 'center',width:'100'},
+                {field: 'address', title: '仓库地址', align: 'center',width:'150'},
+                // {field: 'telephone', title: '客户电话', align: 'center',width:'140'},
+                // {field: 'zip', title: '邮编', align: 'center',width:'90'},
                 {field: 'connectionpersion', title: '联系人', align: 'center',width:'130'},
                 {field: 'phone', title: '联系人电话', align: 'center',width:'130'},
-                {field: 'bank', title: '开户银行', align: 'center',width:'100'},
-                {field: 'account', title: '银行账号', align: 'center',width:'160'},
-                {field: 'email', title: '邮箱', align: 'center',width:'200'},
-                {field: 'fax', title: '传真', align: 'center',width:'100'},
-                {field: 'available', title: '是否可用', align: 'center',width:'100',templet:function (d) {
-                    return d.available==1?'<font color="blue">可用</font>':'<font color="red">不可用</font>';
-                }},
+                // {field: 'bank', title: '开户银行', align: 'center',width:'100'},
+                // {field: 'account', title: '银行账号', align: 'center',width:'160'},
+                // {field: 'email', title: '邮箱', align: 'center',width:'200'},
+                // {field: 'fax', title: '传真', align: 'center',width:'100'},
+                // {field: 'available', title: '是否可用', align: 'center',width:'100',templet:function (d) {
+                //         return d.available==1?'<font color="blue">可用</font>':'<font color="red">不可用</font>';
+                //     }},
                 {fixed: 'right', title: '操作', toolbar: '#customerRowBar', align: 'center',width:'180'}
             ] ],
+
             done: function (data, curr, count) {
                 //不是第一页时，如果当前返回的数据为0那么就返回上一页
                 if (data.data.length == 0 && curr != 1) {
@@ -268,7 +289,8 @@
                 type:1,
                 content:$("#addOrUpdateDiv"),
                 area:['700px','500px'],
-                title:'添加客户',
+                // title:'添加客户',
+                title:'添加仓库',
                 success:function () {
                     $("#dataFrm")[0].reset();
                     url="/customer/addCustomer";

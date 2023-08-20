@@ -12,6 +12,12 @@ import javax.servlet.MultipartConfigElement;
 
 /**
  * @author luoyi-
+ *
+ *
+ * UPDATE sys_permission SET title = '仓库管理'    WHERE id = 7;
+ *
+ * UPDATE bus_customer  SET customername  = "天津仓库" WHERE id =3 ;
+ *
  */
 @Configuration
 @SpringBootApplication
