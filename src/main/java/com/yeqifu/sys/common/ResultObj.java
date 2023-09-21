@@ -26,6 +26,10 @@ public class ResultObj {
     public static final ResultObj DELETE_SUCCESS = new ResultObj(Constast.OK,"删除成功");
     public static final ResultObj DELETE_ERROR = new ResultObj(Constast.ERROR,"删除失败");
 
+
+    public static final ResultObj FAHUO_SUCCESS = new ResultObj(Constast.OK,"发货成功");
+    public static final ResultObj FAHUO_ERROR = new ResultObj(Constast.ERROR,"发货失败");
+
     public static final ResultObj UPDATE_SUCCESS = new ResultObj(Constast.OK,"修改成功");
     public static final ResultObj UPDATE_ERROR = new ResultObj(Constast.ERROR,"修改失败");
 

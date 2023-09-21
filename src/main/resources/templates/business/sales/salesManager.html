@@ -114,7 +114,7 @@
     <table class="layui-hide" id="salesTable" lay-filter="salesTable"></table>
     <div id="salesToolBar" style="display: none">
         <button type="button" lay-event="add" shiro:hasPermission="sales:create" class="layui-btn layui-btn-sm layui-btn-normal layui-btn-radius">
-            <i class="layui-icon layui-icon-add-1"></i>添加销售
+            <i class="layui-icon layui-icon-add-1"></i>添加订单
         </button>
     </div>
     <div id="salesRowBar" style="display: none;">
@@ -127,6 +127,11 @@
         <button type="button" lay-event="back" shiro:hasPermission="sales:back" class="layui-btn layui-btn-sm layui-btn-warm layui-btn-radius"><i
                 class="layui-icon layui-icon-delete"></i>退货
         </button>
+
+        <button type="button" lay-event="fahuo" shiro:hasPermission="sales:back" class="layui-btn layui-btn-sm layui-btn-warm layui-btn-radius"><i
+                class="layui-icon layui-icon-edit"></i>发货
+        </button>
+
     </div>
 </div>
 
@@ -277,8 +282,10 @@
                 {field: 'number', title: '订单数量', align: 'center',width:'100'},
                 {field: 'size', title: '商品规格', align: 'center',width:'100'},
                 {field: 'saleprice', title: '订单价格', align: 'center',width:'120'},
-                {field: 'remark', title: '地点', align: 'center',width:'120'},
-                {fixed: 'right', title: '操作', toolbar: '#salesRowBar', align: 'center',width:'260'}
+                {field: 'available', title: '订单状态', align: 'center',width:'100',templet:function (d) {
+                        return d.available==1?'<font color="blue">已发货</font>':'<font color="red">未发货</font>';}
+                    },{field: 'remark', title: '地点', align: 'center',width:'120'},
+                {fixed: 'right', title: '操作', toolbar: '#salesRowBar', align: 'center',width:'360'}
             ] ],
             done: function (data, curr, count) {
                 //不是第一页时，如果当前返回的数据为0那么就返回上一页
@@ -326,6 +333,10 @@
                 case 'back':
                     backSales(data);
                     break;
+
+                case 'fahuo':
+                    fahuo(data);
+                    break;
             };
         });
 
@@ -363,7 +374,7 @@
                 type:1,
                 content:$("#addOrUpdateDiv"),
                 area:['700px','500px'],
-                title:'添加销售',
+                title:'添加订单',
                 success:function () {
                     $("#dataFrm")[0].reset();
                     //初始化客户名称的下拉列表
@@ -501,6 +512,20 @@
                     //装载新的数据   获得销售的ID以及当前销售单的订单数量
                     form.val("dataFrmBack",{id:data.id,currentNumber:data.number});
                 }
+            });
+        }
+
+        function fahuo(data) {
+            layer.confirm('你确定要发货吗？', {icon: 3, title: '提示'}, function (index) {
+                $.post("/sales/fahuo", {id: data.id},function (res) {
+                    if (res.code == 200) {
+                        tableIns.reload({
+                            where:"",
+                        });
+                    }
+                    layer.msg(res.msg);
+                });
+                layer.close(index);
             });
         }
 

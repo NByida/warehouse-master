@@ -25,22 +25,22 @@
 <form action="" method="post" id="searchFrm" lay-filter="searchFrm" class="layui-form">
     <div class="layui-form-item">
         <div class="layui-inline">
-            <label class="layui-form-label">供应商名称</label>
+            <label class="layui-form-label">仓库名称</label>
             <div class="layui-input-inline">
                 <input type="text" name="providername" id="providername" class="layui-input input-radius"
-                       placeholder="请输入供应商名称">
+                       placeholder="请输入仓库名称">
             </div>
         </div>
+<!--        <div class="layui-inline">-->
+<!--            <label class="layui-form-label">联系人名称</label>-->
+<!--            <div class="layui-input-inline">-->
+<!--                <input type="text" name="connectionperson" id="connectionperson" class="layui-input input-radius" placeholder="请输入联系人名称">-->
+<!--            </div>-->
+<!--        </div>-->
         <div class="layui-inline">
-            <label class="layui-form-label">联系人名称</label>
+            <label class="layui-form-label">仓库号码</label>
             <div class="layui-input-inline">
-                <input type="text" name="connectionperson" id="connectionperson" class="layui-input input-radius" placeholder="请输入联系人名称">
-            </div>
-        </div>
-        <div class="layui-inline">
-            <label class="layui-form-label">联系人号码</label>
-            <div class="layui-input-inline">
-                <input type="text" name="phone" id="phone" class="layui-input input-radius" placeholder="请输入联系人号码">
+                <input type="text" name="phone" id="phone" class="layui-input input-radius" placeholder="请输入仓库号码">
             </div>
         </div>
     </div>
@@ -61,7 +61,7 @@
     <table class="layui-hide" id="providerTable" lay-filter="providerTable"></table>
     <div id="providerToolBar" style="display: none">
         <button type="button" lay-event="add" shiro:hasPermission="provider:create" class="layui-btn layui-btn-sm layui-btn-normal layui-btn-radius">
-            <i class="layui-icon layui-icon-add-1"></i>添加供应商
+            <i class="layui-icon layui-icon-add-1"></i>添加仓库
         </button>
     </div>
     <div id="providerRowBar" style="display: none;">
@@ -102,9 +102,9 @@
                 </div>
             </div>
             <div class="layui-inline">
-                <label class="layui-form-label">邮编</label>
+                <label class="layui-form-label">仓库名称</label>
                 <div class="layui-input-block">
-                    <input type="text" name="zip" lay-verify="required" autocomplete="off" class="layui-input input-radius" placeholder="请输入邮编">
+                    <input type="text" name="zip" lay-verify="required" autocomplete="off" class="layui-input input-radius" placeholder="请输入仓库名称">
                 </div>
             </div>
         </div>
@@ -194,17 +194,20 @@
             height: "full-180",
             cols: [ [
                 {type:'checkbox',fixed:'left'},
-                {field: 'id', title: 'ID', align: 'center',width:'50'},
-                {field: 'providername', title: '供应商名称', align: 'center',width:'100'},
-                {field: 'address', title: '供应商地址', align: 'center',width:'150'},
-                {field: 'telephone', title: '供应商电话', align: 'center',width:'140'},
-                {field: 'zip', title: '邮编', align: 'center',width:'90'},
+                {field: 'id', title: '仓库ID', align: 'center',width:'150'},
+                // {field: 'zip', title: '仓库名称', align: 'center',width:'90'},
+
+
+                // {field: 'providername', title: '供应商名称', align: 'center',width:'100'},
+
+                {field: 'zip', title: '仓库名称', align: 'center',width:'150'},
+                {field: 'telephone', title: '仓库电话', align: 'center',width:'140'},
                 {field: 'connectionperson', title: '联系人', align: 'center',width:'130'},
                 {field: 'phone', title: '联系人电话', align: 'center',width:'130'},
-                {field: 'bank', title: '开户银行', align: 'center',width:'100'},
-                {field: 'account', title: '银行账号', align: 'center',width:'160'},
-                {field: 'email', title: '邮箱', align: 'center',width:'200'},
-                {field: 'fax', title: '传真', align: 'center',width:'100'},
+                // {field: 'bank', title: '开户银行', align: 'center',width:'100'},
+                // {field: 'account', title: '银行账号', align: 'center',width:'160'},
+                // {field: 'email', title: '邮箱', align: 'center',width:'200'},
+                // {field: 'fax', title: '传真', align: 'center',width:'100'},
                 {field: 'available', title: '是否可用', align: 'center',width:'100',templet:function (d) {
                     return d.available==1?'<font color="blue">可用</font>':'<font color="red">不可用</font>';
                 }},
@@ -268,7 +271,7 @@
                 type:1,
                 content:$("#addOrUpdateDiv"),
                 area:['700px','500px'],
-                title:'添加供应商',
+                title:'添加仓库',
                 success:function () {
                     $("#dataFrm")[0].reset();
                     url="/provider/addProvider";

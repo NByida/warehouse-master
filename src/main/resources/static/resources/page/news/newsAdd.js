@@ -11,16 +11,16 @@ layui.use(['form','layer','layedit','laydate','upload'],function(){
     layedit.sync(editIndex);
 
     //上传缩略图
-    upload.render({
-        elem: '.thumbBox',
-        url: '../../json/userface.json',
-        method : "get",  //此处是为了演示之用，实际使用中请将此删除，默认用post方式提交
-        done: function(res, index, upload){
-            var num = parseInt(4*Math.random());  //生成0-4的随机数，随机显示一个头像信息
-            $('.thumbImg').attr('src',res.data[num].src);
-            $('.thumbBox').css("background","#fff");
-        }
-    });
+    // upload.render({
+    //     elem: '.thumbBox',
+    //     url: '../../json/userface.json',
+    //     method : "get",  //此处是为了演示之用，实际使用中请将此删除，默认用post方式提交
+    //     done: function(res, index, upload){
+    //         var num = parseInt(4*Math.random());  //生成0-4的随机数，随机显示一个头像信息
+    //         $('.thumbImg').attr('src',res.data[num].src);
+    //         $('.thumbBox').css("background","#fff");
+    //     }
+    // });
 
     //格式化时间
     function filterTime(val){

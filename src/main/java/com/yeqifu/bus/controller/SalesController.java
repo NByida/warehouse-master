@@ -133,5 +133,18 @@ public class SalesController {
         }
     }
 
+    @RequestMapping("fahuo")
+    public ResultObj fahuo(Integer id){
+        try {
+            Sales sales =  salesService.getById(id);
+            sales.setAvailable(1);
+            salesService.updateById(sales);
+            return ResultObj.FAHUO_SUCCESS;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResultObj.FAHUO_ERROR;
+        }
+    }
+
 }
 

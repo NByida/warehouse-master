@@ -14,9 +14,21 @@ import javax.servlet.MultipartConfigElement;
  * @author luoyi-
  *
  *
- * UPDATE sys_permission SET title = '仓库管理'    WHERE id = 7;
+ * UPDATE sys_permission SET title = '仓库管理'    WHERE id = 8;
  *
  * UPDATE bus_customer  SET customername  = "天津仓库" WHERE id =3 ;
+ *
+ * UPDATE bus_provider  SET zip  = "天津仓库" WHERE id =1 ;
+ * UPDATE bus_provider  SET zip  = "武汉仓库" WHERE id =2 ;
+ * UPDATE bus_provider  SET zip  = "杭州仓库" WHERE id =3 ;
+ * UPDATE bus_provider  SET zip  = "新疆仓库" WHERE id =4 ;
+ * UPDATE bus_provider  SET zip  = "内蒙仓库" WHERE id =5 ;
+ * UPDATE bus_provider  SET zip  = "上海仓库" WHERE id =12 ;
+ *
+ *
+ * UPDATE sys_permission SET title = '订单管理'    WHERE id = 12;
+ *
+ * UPDATE sys_permission SET title = '分货管理'    WHERE id = 2;
  *
  */
 @Configuration

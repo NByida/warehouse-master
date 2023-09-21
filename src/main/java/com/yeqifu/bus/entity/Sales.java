@@ -46,6 +46,10 @@ public class Sales implements Serializable {
 
     private Integer goodsid;
 
+    private Integer available;
+
+
+
     /**
      * 客户名称
      */

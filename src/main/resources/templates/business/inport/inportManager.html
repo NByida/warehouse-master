@@ -114,7 +114,7 @@
     <table class="layui-hide" id="inportTable" lay-filter="inportTable"></table>
     <div id="inportToolBar" style="display: none">
         <button type="button" lay-event="add" shiro:hasPermission="inport:create" class="layui-btn layui-btn-sm layui-btn-normal layui-btn-radius">
-            <i class="layui-icon layui-icon-add-1"></i>添加进货
+            <i class="layui-icon layui-icon-add-1"></i>添加库存
         </button>
     </div>
     <div id="inportRowBar" style="display: none;">
@@ -366,7 +366,7 @@
                 type:1,
                 content:$("#addOrUpdateDiv"),
                 area:['700px','500px'],
-                title:'添加进货',
+                title:'添加库存',
                 success:function () {
                     $("#dataFrm")[0].reset();
                     //初始化供应商的下拉列表

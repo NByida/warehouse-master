@@ -147,10 +147,10 @@
                     </div>
                 </div>
                 <div class="layui-col-md3 layui-col-xs5">
-                    <div class="layui-upload-list thumbBox mag0 magt3">
-                        <input type="hidden" name="goodsimg" id="goodsimg" value="images/noDefaultImage.jpg">
-                        <img class="layui-upload-img thumbImg" src="/file/showImageByPath?path=images/noDefaultImage.jpg">
-                    </div>
+<!--                    <div class="layui-upload-list thumbBox mag0 magt3">-->
+<!--                        <input type="hidden" name="goodsimg" id="goodsimg" value="images/noDefaultImage.jpg">-->
+<!--                        <img class="layui-upload-img thumbImg" src="/file/showImageByPath?path=images/noDefaultImage.jpg">-->
+<!--                    </div>-->
                 </div>
             </div>
             <div class="layui-form-item magb0">
@@ -256,9 +256,9 @@
                 {field: 'price', title: '销售价格', align: 'center',width:'90'},
                 {field: 'number', title: '数量', align: 'center',width:'90'},
                 {field: 'dangernum', title: '库存预警值', align: 'center',width:'100'},
-                {field: 'goodsimg', title: '商品图片', align: 'center',width:'150', templet:function(d){
-                    return '<img width=40 height=40 src=/file/showImageByPath?path='+d.goodsimg+ ' />';
-                }},
+                // {field: 'goodsimg', title: '商品图片', align: 'center',width:'150', templet:function(d){
+                //     return '<img width=40 height=40 src=/file/showImageByPath?path='+d.goodsimg+ ' />';
+                // }},
                 {field: 'size', title: '规格', align: 'center',width:'120'},
                 {field: 'goodspackage', title: '包装', align: 'center',width:'120'},
                 {field: 'productcode', title: '生产批号', align: 'center',width:'130'},
@@ -370,8 +370,8 @@
                         form.render("select");
                     });
                     //设置默认为无图片
-                    $(".thumbImg").attr("src",'/file/showImageByPath?path=images/noDefaultImage.jpg');
-                    $("#goodsimg").val('/images/noDefaultImage.jpg');
+                    // $(".thumbImg").attr("src",'/file/showImageByPath?path=images/noDefaultImage.jpg');
+                    // $("#goodsimg").val('/images/noDefaultImage.jpg');
                 }
             });
         }
