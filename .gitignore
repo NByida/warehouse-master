@@ -25,6 +25,7 @@ target/
 /dist/
 /nbdist/
 /.nb-gradle/
+*DS_Store
 build/
 
 ### VS Code ###
